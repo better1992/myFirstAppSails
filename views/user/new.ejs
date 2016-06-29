@@ -3,24 +3,13 @@
     <div class="tooltip">Click Me</div>
   </div>
   <div class="form">
-    <h2>Login to your account</h2>
-    <form>
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <button>Login</button>
-    </form>
-  </div>
-  <div class="form">
     <h2>Create an account</h2>
-    <form>
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <input type="email" placeholder="Email Address"/>
-      <input type="tel" placeholder="Phone Number"/>
+    <form action="/user/create" method="POST">
+      <input type="text" name='name' placeholder="Username"/>
+      <input type="password" name='encryptedPassword' placeholder="Password"/>
+      <input type="email" name='email' placeholder="Email Address"/>
+      <input type="tel" name='phone' placeholder="Phone Number"/>
       <button>Register</button>
     </form>
   </div>
-  <div class="cta"><a href="http://andytran.me">Forgot your password?</a></div>
 </div>
-<script src='http://codepen.io/andytran/pen/vLmRVp.js'></script>
-<script src="js/index.js"></script>
