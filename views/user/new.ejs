@@ -4,12 +4,22 @@
   </div>
   <div class="form">
     <h2>Create an account</h2>
-    <form action="/user/create" method="POST">
+    <form action="/user/create" method="POST" class="form-signin">
+      <% if (flash && flash.err) { %>
+        <ul class="alert alert-success">
+            <% Object.keys(flash.err).forEach(function(error) { %>
+            <li><%- JSON.stringify(flash.err[error]) %></li>
+        <% }) %>
+        </ul>
+    <% } %>
+
       <input type="text" name='name' placeholder="Username"/>
-      <input type="password" name='encryptedPassword' placeholder="Password"/>
+      <input type="password" name='encryptedPassword' id='encryptedPassword' placeholder="Password"/>
+      <input type="password" name='confirmPassword' placeholder="Confirm Password"/>
       <input type="email" name='email' placeholder="Email Address"/>
       <input type="tel" name='phone' placeholder="Phone Number"/>
       <button>Register</button>
+      <input type="hidden" name='_csrf' value="<%= _csrf %>"/>
     </form>
   </div>
 </div>

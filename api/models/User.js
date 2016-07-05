@@ -7,6 +7,8 @@
 
 module.exports = {
 
+	schema: false, 
+
 	attributes: {
 		name: {
 			type: 'string',
@@ -25,6 +27,12 @@ module.exports = {
 			type: 'string',
 			required: true
 		}
+	},
+
+	toJson: function() {
+		var obj = this.toObject();
+		delete obj.encryptedPassword;
+		return obj;
 	}
 };
 
